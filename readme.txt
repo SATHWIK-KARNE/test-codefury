@@ -17,3 +17,4 @@ Any specific technologies or libraries you plan to use.
 Considerations for ensuring a responsive and user-friendly design.
 
 Commit the documentations once you make a plan
+https://sathwik-karne.github.io/test-codefury/
