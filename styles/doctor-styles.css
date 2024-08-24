@@ -1,192 +1,164 @@
-/* General styles for doctor's page */
-
 body {
-  font-family: 'Roboto', sans-serif !important;
-}
-
-header {
-  background: linear-gradient(90deg, #0066cc, #004d99);
-  color: #fff;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-content h1 {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f7;
+  color: #333;
   margin: 0;
-  font-size: 1.5rem;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #ffcc00;
+  padding: 0;
 }
 
 .container {
   display: flex;
-  margin: 80px 20px 20px; /* Adjust for fixed header */
+  height: 100vh;
 }
 
-/* Sidebar styles */
-aside {
-  width: 20%;
-  background: #fff;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+/* Sidebar container */
+.sidebar {
+width: 250px;
+background-color: #0056b3; /* Original blue theme */
+color: #fff;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+padding: 20px 0;
+box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
 }
 
-aside h2 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  color: #004d99;
+/* Sidebar links */
+.sidebar a {
+display: flex;
+align-items: center;
+padding: 15px 20px;
+font-size: 18px;
+font-weight: bold;
+color: #fff;
+text-decoration: none;
+transition: background 0.3s ease;
 }
 
-aside ul {
-  list-style: none;
+.sidebar a:hover {
+background-color: #004494; /* Darker shade of blue */
+padding-left: 30px; /* Adds some movement on hover */
 }
 
-aside ul li {
-  margin-bottom: 10px;
+/* Icons next to the text */
+.sidebar a i {
+margin-right: 15px;
 }
 
-aside ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+/* Sidebar headings */
+.sidebar h3 {
+padding: 15px 20px;
+margin-bottom: 10px;
+font-size: 22px;
+font-weight: bold;
+border-bottom: 2px solid #004494;
 }
 
-aside ul li a:hover {
+/* Main content adjustment to fit the sidebar */
+.main-content {
+margin-left: 270px;
+padding: 20px;
+transition: all 0.3s ease;
+}
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.doctor-card, .patient-card {
+display:flex;
+justify-content: center;
+align-items: center;
+  background-color: white;
+  width: 40%;
+  margin-bottom: 20px;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.doctor-card img {
+  width: 50%;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.doctor-card h3, .patient-card h3 {
+  margin-top: 0;
   color: #007bff;
 }
 
-/* Main content styles */
-main {
-  width: 80%;
-  padding: 1rem;
+.doctor-card p, .patient-card p {
+  margin: 5px 0;
 }
 
-section {
-  margin-bottom: 2rem;
+.doctor-card:hover, .patient-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+/* Add Schedule Section */
+.schedule-container {
+margin-top: 20px;
+padding: 20px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+max-width: 400px;
+margin-left: auto;
+margin-right: auto;
 }
 
-h2 {
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-  color: #004d99;
+.input-group {
+margin-bottom: 15px;
 }
 
-/* Form styles */
-form {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+.input-group label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+color: #007bff;
 }
 
-form:hover {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.input-group input {
+width: 100%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 16px;
 }
 
-form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+.input-group input[type="time"] {
+background-color: #f9f9f9;
 }
 
-form input, form select, form textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
+.schedule-container .btn {
+width: 100%;
+padding: 10px;
+background-color: #007bff;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+transition: background-color 0.3s;
 }
 
-form textarea {
-  resize: vertical;
+.schedule-container .btn:hover {
+background-color: #0056b3;
 }
 
-button {
-  background: #0066cc;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #004d99;
-}
-
-/* Table styles */
-.appointments-table table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-table, th, td {
-  border: 1px solid #ddd;
-}
-
-th, td {
-  padding: 0.75rem;
-  text-align: left;
-}
-
-th {
-  background: linear-gradient(90deg, #004d99, #0066cc);
-  color: #fff;
-}
-
-tbody tr:nth-child(even) {
-  background: #f9f9f9;
-}
-
-tbody tr:hover {
-  background: #e1e1e1;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #0056b3;
+#datepicker {
+color: #333;
+font-size: 16px;
+padding: 8px;
+border-radius: 4px;
+border: 1px solid #ccc;
+width: 100%;
 }

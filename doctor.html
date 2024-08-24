@@ -3,100 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor's Dashboard</title>
+    <title>Doctor Dashboard</title>
     <link rel="stylesheet" href="styles/doctor-styles.css">
+
+     <!-- jQuery and jQuery UI -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-    <!-- DOCTOR HOMEPAGE ================= -->
-    <header>
-        <div class="header-content">
-            <h1>Hospital Management System</h1>
-            <!-- NAVBAR ========================= -->
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Doctor's Page</a></li>
-                    <li><a href="#">Appointments</a></li>
-                    <li><a href="#">Suggest Medications</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
     <div class="container">
-        <!-- SIDEBAR========================= -->
-        <aside>
-            <h2>Doctor's Panel</h2>
+        <nav class="sidebar">
             <ul>
-                <li><a href="#">Add Schedule</a></li>
-                <li><a href="#">View Appointments</a></li>
-                <li><a href="#">Suggest Tests/Medications</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#add-schedule">Add Schedule</a></li>
+                <li><a href="#appointments">Appointments</a></li>
             </ul>
-        </aside>
-        
-        <main>
-            <section class="add-schedule">
-                <h2>Add or Update Schedule</h2>
-                <form>
-                    <label for="schedule-date">Date:</label>
-                    <input type="date" id="schedule-date" name="schedule-date" required>
-
-                    <label for="schedule-time">Time:</label>
-                    <input type="time" id="schedule-time" name="schedule-time" required>
-
-                    <label for="schedule-details">Details:</label>
-                    <textarea id="schedule-details" name="schedule-details" rows="4" placeholder="Enter details here..." required></textarea>
-
-                    <button type="submit">Save Schedule</button>
-                </form>
-            </section>
-            
-            <section class="view-appointments">
-                <h2>View Appointments</h2>
-                <div class="appointments-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Appointment ID</th>
-                                <th>Patient Name</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>A</td>
-                                <td>2024-08-25</td>
-                                <td>10:00 AM</td>
-                                <td>Confirmed</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
+        </nav>
+        <div class="main-content">
+            <section id="dashboard">
+                <h2>Available Doctors</h2>
+                <div class="card-container">
+                    <!-- Doctor Card 1 -->
+                    <div class="doctor-card">
+                        <img src="images/d1.png" alt="Doctor Image">
+                        <div>
+                          <h3>Dr. John Doe</h3>
+                          <p>Cardiologist</p>
+                          <p>15 years of experience</p>
+                        </div>
+                        
+                    </div>
+                    <!-- Doctor Card 2 -->
+                    <div class="doctor-card">
+                        <img src="images/d2.png" alt="Doctor Image">
+                        <div>
+                          <h3>Dr. Jane Smith</h3>
+                        <p>Neurologist</p>
+                        <p>10 years of experience</p>
+                        </div>
+                        
+                    </div>
+                    <div class="doctor-card">
+                        <img src="images/d3.png" alt="Doctor Image">
+                        <div>
+                          <h3>Dr. John Doe</h3>
+                          <p>Cardiologist</p>
+                          <p>15 years of experience</p>
+                        </div>
+                        
+                    </div>
+                    <!-- Doctor Card 2 -->
+                    <div class="doctor-card">
+                        <img src="images/d4.jpg" alt="Doctor Image">
+                        <div>
+                          <h3>Dr. Jane Smith</h3>
+                          <p>Neurologist</p>
+                          <p>10 years of experience</p>
+                        </div>
+                        
+                    </div>
+                    <!-- Add more doctor cards as needed -->
                 </div>
             </section>
-            
-            <section class="suggestions">
-                <h2>Suggest Tests/Medications</h2>
-                <form>
-                    <label for="patient-id">Patient ID:</label>
-                    <input type="text" id="patient-id" name="patient-id" required>
 
-                    <label for="suggestion-type">Type:</label>
-                    <select id="suggestion-type" name="suggestion-type" required>
-                        <option value="test">Test</option>
-                        <option value="medication">Medication</option>
-                    </select>
+            <section id="add-schedule">
+              <h2>Add Schedule</h2>
+              <div class="schedule-container">
+                  <div class="input-group">
+                      <label for="datepicker">Select Date:</label>
+                      <input type="text" id="datepicker" placeholder="Pick a date" readonly>
+                  </div>
+                  <div class="input-group">
+                      <label for="time">Select Time:</label>
+                      <input type="time" id="time" placeholder="Pick a time">
+                  </div>
+                  <button class="btn">Submit Schedule</button>
+              </div>
+          </section>
+          
 
-                    <label for="suggestion-details">Details:</label>
-                    <textarea id="suggestion-details" name="suggestion-details" rows="4" placeholder="Enter details here..." required></textarea>
-
-                    <button type="submit">Submit Suggestion</button>
-                </form>
+            <section id="appointments">
+                <h2>Patient Appointments</h2>
+                <div class="card-container">
+                    <!-- Patient Card 1 -->
+                    <div class="patient-card">
+                        <h3>John Appleseed</h3>
+                        <p>Appointment: 24th Aug 2024</p>
+                        <button class="btn">Suggest Test/Medication</button>
+                    </div>
+                    <!-- Patient Card 2 -->
+                    <div class="patient-card">
+                        <h3>Jane Appleseed</h3>
+                        <p>Appointment: 25th Aug 2024</p>
+                        <button class="btn">Suggest Test/Medication</button>
+                    </div>
+                    <!-- Patient Card 1 -->
+                    <div class="patient-card">
+                        <h3>John Appleseed</h3>
+                        <p>Appointment: 24th Aug 2024</p>
+                        <button class="btn">Suggest Test/Medication</button>
+                    </div>
+                    <!-- Patient Card 2 -->
+                    <div class="patient-card">
+                        <h3>Jane Appleseed</h3>
+                        <p>Appointment: 25th Aug 2024</p>
+                        <button class="btn">Suggest Test/Medication</button>
+                    </div>
+                    <!-- Add more patient cards as needed -->
+                </div>
             </section>
-        </main>
+        </div>
     </div>
+    
+    <script src="scripts/doctor.js"></script>
+    <!-- Datepicker Initialization -->
+    <script>
+      $(document).ready(function(){
+          $("#datepicker").datepicker({
+              dateFormat: "dd-mm-yy",
+              minDate: 0,
+              showAnim: "slideDown"
+          });
+      });
+  </script>
 </body>
 </html>

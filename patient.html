@@ -3,116 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Management</title>
+    <title>Patient Dashboard</title>
     <link rel="stylesheet" href="styles/patient-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-  <!-- PATIENT HOMEPAGE========================= -->
-    <header>
-        <div class="header-content">
-          <!-- NAVBAR=========================== -->
-            <h1>Hospital Management System</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Patient Management</a></li>
-                    <li><a href="#">Book Appointment</a></li>
-                    <li><a href="#">View Appointments</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <div class="container">
-      <!-- SIDEBAR============================ -->
-        <aside>
-            <h2>Patient Panel</h2>
-            <ul>
-                <li><a href="#">Add Patient</a></li>
-                <li><a href="#">Book Appointment</a></li>
-                <li><a href="#">View Appointments</a></li>
-            </ul>
-        </aside>
-        
-        <main>
-
-          <!-- ADDING PATIENTS =================== -->
-            <section class="add-patient">
-                <h2>Add Patient</h2>
-                <form>
-                    <label for="patient-name">Name:</label>
-                    <input type="text" id="patient-name" name="patient-name" required>
-
-                    <label for="patient-dob">Date of Birth:</label>
-                    <input type="date" id="patient-dob" name="patient-dob" required>
-
-                    <label for="patient-email">Email:</label>
-                    <input type="email" id="patient-email" name="patient-email" required>
-
-                    <label for="patient-phone">Phone:</label>
-                    <input type="tel" id="patient-phone" name="patient-phone" required>
-
-                    <button type="submit">Add Patient</button>
-                </form>
-            </section>
-            
-
-            <!-- BOOKING APPOINTMENTS ===================== -->
-            <section class="book-appointment">
-                <h2>Book Appointment</h2>
-                <form>
-                    <label for="patient-id">Patient ID:</label>
-                    <input type="text" id="patient-id" name="patient-id" required>
-
-                    <label for="doctor-id">Doctor:</label>
-                    <select id="doctor-id" name="doctor-id" required>
-                        <!-- FIRST NEED TO SHOW AVAILABLE DOCTORS -->
-                        <option value="" disabled selected>Select a doctor</option>
-                      
-                        <!-- HARDCODED TO DO LATER ===================== -->
-                        <option value="d1">Dr. A</option>
-                        <option value="d2">Dr. B</option>
-                        
-                    </select>
-
-                    <label for="appointment-date">Date:</label>
-                    <input type="date" id="appointment-date" name="appointment-date" required>
-
-                    <label for="appointment-time">Time:</label>
-                    <input type="time" id="appointment-time" name="appointment-time" required>
-
-                    <button type="submit">Book Appointment</button>
-                </form>
-            </section>
-            
-            <!-- SHOW ALL APPOINTMENTS OF PATIENT==================== -->
-            <section class="view-appointments">
-                <h2>View Appointments</h2>
-                <div class="appointments-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Appointment ID</th>
-                                <th>Doctor Name</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Dr. A</td>
-                                <td>2024-08-26</td>
-                                <td>11:00 AM</td>
-                                <td>Confirmed</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </main>
+    <div class="sidebar">
+        <div class="sidebar-title">Patient Dashboard</div>
+        <ul class="sidebar-menu">
+            <li><a href="#available-doctors">Available Doctors</a></li>
+            <li><a href="#book-appointment">Book Appointment</a></li>
+            <li><a href="#view-appointments">View Appointments</a></li>
+        </ul>
     </div>
+
+    <div class="content">
+        <!-- Available Doctors Section -->
+        <section id="available-doctors">
+            <h2>Available Doctors</h2>
+            <div class="card-container">
+                <!-- Doctor Cards -->
+                <div class="card">
+                    <img src="images/d3.png" alt="Dr. John Doe" class="card-img">
+                    <h3>Dr. John Doe</h3>
+                    <p>Specialty: Cardiology</p>
+                    <p>Experience: 10 years</p>
+                </div>
+                <div class="card">
+                    <img src="images/d4.jpg" alt="Dr. Jane Smith" class="card-img">
+                    <h3>Dr. Jane Smith</h3>
+                    <p>Specialty: Neurology</p>
+                    <p>Experience: 8 years</p>
+                </div>
+                <div class="card">
+                    <img src="images/d1.png" alt="Dr. Richard Roe" class="card-img">
+                    <h3>Dr. Richard Roe</h3>
+                    <p>Specialty: Pediatrics</p>
+                    <p>Experience: 12 years</p>
+                </div>
+                <div class="card">
+                    <img src="images/d2.png" alt="Dr. Alice Johnson" class="card-img">
+                    <h3>Dr. Alice Johnson</h3>
+                    <p>Specialty: Dermatology</p>
+                    <p>Experience: 7 years</p>
+                </div>
+            </div>
+        </section>
+        <section id="add-patient">
+            <h2>Add New Patient</h2>
+            <form id="addPatientForm">
+                <div class="form-group">
+                    <label for="patientName">Patient Name:</label>
+                    <input type="text" id="patientName" name="patientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientEmail">Email:</label>
+                    <input type="email" id="patientEmail" name="patientEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientPhone">Phone:</label>
+                    <input type="text" id="patientPhone" name="patientPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">Appointment Date:</label>
+                    <input type="text" id="appointment-date" name="appointmentDate" required>
+                </div>
+                <button type="submit">Add Patient</button>
+            </form>
+        </section>
+        
+        <!-- Book Appointment Section -->
+        <section id="book-appointment">
+            <h2>Book Appointment</h2>
+            <form id="appointment-form">
+                <label for="doctor-select">Select Doctor:</label>
+                <select id="doctor-select">
+                    <option value="john-doe">Dr. John Doe - Cardiology</option>
+                    <option value="jane-smith">Dr. Jane Smith - Neurology</option>
+                </select>
+
+                <label for="appointment-date">Select Date:</label>
+                <input type="text" id="appointment-date" placeholder="Select Date">
+
+                <button type="submit">Book Appointment</button>
+            </form>
+        </section>
+
+        <section id="view-appointments">
+            <h2>Your Appointments</h2>
+            <div class="view-container">
+                <!-- Appointment Cards -->
+                <div class="view">
+                    <h3>Appointment with Dr. John Doe</h3>
+                    <p>Date: 25th August 2024</p>
+                    <p>Time: 10:00 AM</p>
+                    <button class="cancel-appointment">Cancel Appointment</button>
+                    <div class="suggestions">
+                        <h4>Doctor's Suggestions:</h4>
+                        <p>Recommended Tests: Blood Pressure, ECG</p>
+                        <p>Medications: Aspirin</p>
+                    </div>
+                </div>
+                <div class="view">
+                    <h3>Appointment with Dr. Jane Smith</h3>
+                    <p>Date: 26th August 2024</p>
+                    <p>Time: 12:00 PM</p>
+                    <button class="cancel-appointment">Cancel Appointment</button>
+                    <div class="suggestions">
+                        <h4>Doctor's Suggestions:</h4>
+                        <p>Recommended Tests: MRI</p>
+                        <p>Medications: Ibuprofen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="scripts/patient.js"></script>
 </body>
 </html>
