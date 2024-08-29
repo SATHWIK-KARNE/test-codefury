@@ -1,6 +1,4 @@
-To UI Team,
-
-As we begin our work on the hospital management system project, our first task is to develop the home page, which will include the register and login functionality.
+Develop the home page, which will include the register and login functionality.
 
 Task Overview:
 Each of you is required to create a short document detailing the features you will implement and outlining your approach to development. This document should cover the following:
